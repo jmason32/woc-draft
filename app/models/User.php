@@ -1,10 +1,50 @@
-<?php
-	/*
-	Copyright (c) 2023 Daerik.com
-	This script may not be copied, reproduced or altered in whole or in part.
-	We check the Internet regularly for illegal copies of our scripts.
-	Do not edit or copy this script for someone else, because you will be held responsible as well.
-	This copyright shall be enforced to the full extent permitted by law.
-	Licenses to use this script on a single website may be purchased from Daerik.com
-	@Author: Daerik
-	*/
+<?php 
+
+
+/**
+ * User class
+ */
+class User
+{
+	
+	use Model;
+
+	protected $table = 'users';
+
+	protected $allowedColumns = [
+
+		'email',
+		'password',
+	];
+
+	public function validate($data)
+	{
+		$this->errors = [];
+
+		if(empty($data['email']))
+		{
+			$this->errors['email'] = "Email is required";
+		}else
+		if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL))
+		{
+			$this->errors['email'] = "Email is not valid";
+		}
+		
+		if(empty($data['password']))
+		{
+			$this->errors['password'] = "Password is required";
+		}
+		
+		if(empty($data['terms']))
+		{
+			$this->errors['terms'] = "Please accept the terms and conditions";
+		}
+
+		if(empty($this->errors))
+		{
+			return true;
+		}
+
+		return false;
+	}
+}
