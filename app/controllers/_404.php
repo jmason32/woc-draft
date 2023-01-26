@@ -5,8 +5,10 @@ class _404
 {
 	use Controller;
 	
-	public function index()
-	{
+	/**
+	 * @return void
+	 */
+	public function index(): void {
 		echo "404 Page not found controller";
 	}
 }

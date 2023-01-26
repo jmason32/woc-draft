@@ -6,9 +6,11 @@
 class Home
 {
 	use Controller;
-
-	public function index()
-	{
+	
+	/**
+	 * @return void
+	 */
+	public function index(): void {
 
 		$data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 

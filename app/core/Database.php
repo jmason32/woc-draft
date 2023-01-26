@@ -2,16 +2,23 @@
 
 Trait Database
 {
-
-	private function connect()
-	{
+	
+	/**
+	 * @return PDO
+	 */
+	private function connect(): PDO {
 		$string = "mysql:hostname=".DBHOST.";dbname=".DBNAME;
 		$con = new PDO($string,DBUSER,DBPASS);
 		return $con;
 	}
-
-	public function query($query, $data = [])
-	{
+	
+	/**
+	 * @param $query
+	 * @param array $data
+	 *
+	 * @return bool|array
+	 */
+	public function query($query, array $data = []): bool|array {
 
 		$con = $this->connect();
 		$stm = $con->prepare($query);

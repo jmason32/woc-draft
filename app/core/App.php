@@ -3,18 +3,21 @@
 	
 	class App
 	{
-		private $controller = 'Home';
-		private $method 	= 'index';
+		private string $controller = 'Home';
+		private string $method     = 'index';
 		
-		private function splitURL()
-		{
+		/**
+		 * @return array
+		 */
+		private function splitURL(): array {
 			$URL = $_GET['url'] ?? 'home';
-			$URL = explode("/", trim($URL,"/"));
-			return $URL;
+			return explode("/", trim($URL,"/"));
 		}
 		
-		public function loadController()
-		{
+		/**
+		 * @return void
+		 */
+		public function loadController(): void {
 			$URL = $this->splitURL();
 			
 			/** select controller **/
