@@ -9,16 +9,21 @@ class User
 	
 	use Model;
 
-	protected $table = 'users';
+	protected string $table = 'users';
 
-	protected $allowedColumns = [
+	protected array $allowedColumns = [
 
 		'email',
 		'password',
+		'username',
 	];
-
-	public function validate($data)
-	{
+	
+	/**
+	 * @param $data
+	 *
+	 * @return bool
+	 */
+	public function validate($data): bool {
 		$this->errors = [];
 
 		if(empty($data['email']))
@@ -33,6 +38,12 @@ class User
 		if(empty($data['password']))
 		{
 			$this->errors['password'] = "Password is required";
+		}
+		
+		//If username is empty
+		if(empty($data['username']))
+		{
+			$this->errors['username'] = "Username is required";
 		}
 		
 		if(empty($data['terms']))

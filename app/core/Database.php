@@ -8,8 +8,7 @@ Trait Database
 	 */
 	private function connect(): PDO {
 		$string = "mysql:hostname=".DBHOST.";dbname=".DBNAME;
-		$con = new PDO($string,DBUSER,DBPASS);
-		return $con;
+		return new PDO($string,DBUSER,DBPASS);
 	}
 	
 	/**
@@ -35,9 +34,14 @@ Trait Database
 
 		return false;
 	}
-
-	public function get_row($query, array $data = [])
-	{
+	
+	/**
+	 * @param       $query
+	 * @param array $data
+	 *
+	 * @return false|mixed
+	 */
+	public function get_row($query, array $data = []): mixed {
 
 		$con = $this->connect();
 		$stm = $con->prepare($query);

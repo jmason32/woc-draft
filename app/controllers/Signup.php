@@ -27,6 +27,11 @@ class Signup
 				redirect('login');
 			}
 			//If there are any errors, validate will return false with errors
+			/*
+			 * Should the check for unique usernames be done within validate?
+			 *
+			 *
+			 * */
 			$data['errors'] = $user->errors;			
 		}
 

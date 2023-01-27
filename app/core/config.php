@@ -3,10 +3,10 @@
 if($_SERVER['SERVER_NAME'] == 'localhost')
 {
 	/** database config **/
-	define('DBNAME', 'my_db');
-	define('DBHOST', 'localhost');
+	define('DBNAME', 'woc');
+	define('DBHOST', 'localhost:8889');
 	define('DBUSER', 'root');
-	define('DBPASS', '');
+	define('DBPASS', 'root');
 	define('DBDRIVER', '');
 	
 	define('ROOT', 'http://localhost:8888/woc/public/');

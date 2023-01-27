@@ -20,7 +20,6 @@ class Login
 			
 			//Retrieve the (email, password) from frontend
 			$arr['email'] = $_POST['email'];
-			$arr['username'] = $_POST['username'];
 
 			//Check database
 			$row = $user->first($arr);
