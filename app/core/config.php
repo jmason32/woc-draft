@@ -9,7 +9,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost')
 	define('DBPASS', 'root');
 	define('DBDRIVER', '');
 	
-	define('ROOT', 'http://localhost:8888/woc/public/');
+	define('ROOT', 'http://localhost:8888/woc/public');
 
 }else
 {
